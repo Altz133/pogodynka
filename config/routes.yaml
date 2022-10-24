@@ -1,0 +1,16 @@
+weather_in_city:
+  path: /weather/{city}
+  controller: App\Controller\WeatherController:cityAction
+  requirements:
+    city: \d+
+
+location:
+  path: /location
+  prefix: "location"
+
+measurement:
+  path: /measurement
+  prefix: "/measurement"
+
+
+
