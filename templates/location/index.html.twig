@@ -41,7 +41,12 @@
 
      <h2>Routing</h2>
     <ul>
+    {% if is_granted('ROLE_METEOROLOGIST') %}
     <li> <a href= "{{ path("measurement") }}">Measurement</a></li>
+    {% endif %}
+    {% if is_granted('ROLE_CARTOGRAPHER') %}
     <li> <a href= "{{ path("location") }}">Location</a></li>
+     {% endif %}
+    <li> <a href= "{{ path("app_logout") }}"> Logout </a></li>
     </ul>
 {% endblock %}

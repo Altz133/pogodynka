@@ -19,7 +19,7 @@ class WeatherController extends AbstractController
     $pressure =  $measurementRepository->findPressureByLocation($city);
     return $this->render('weather/city.html.twig', [
     'location' => $city,
-    'measurements' => $measurements,
+    'measurement' => $measurement,
     'filtered' =>$pressure
     ]);
     }
