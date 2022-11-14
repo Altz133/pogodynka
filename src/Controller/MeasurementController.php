@@ -15,6 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class MeasurementController extends AbstractController
 {
     #[Route('/', name: 'app_measurement_index', methods: ['GET'])]
+    #[IsGranted("ROLE_MEASUREMENT_INDEX")]
     public function index(MeasurementRepository $measurementRepository): Response
     {
         return $this->render('measurement/index.html.twig', [
@@ -23,7 +24,7 @@ class MeasurementController extends AbstractController
     }
 
     #[Route('/new', name: 'app_measurement_new', methods: ['GET', 'POST'])]
-    #[IsGranted("ROLE_METEOROLOGIST")]
+    #[IsGranted("ROLE_MEASUREMENT_NEW")]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $measurement = new Measurement();
@@ -46,7 +47,7 @@ class MeasurementController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_measurement_show', methods: ['GET'])]
-    #[IsGranted("ROLE_METEOROLOGIST")]
+    #[IsGranted("ROLE_METEOROLOGIST_SHOW")]
     public function show(Measurement $measurement): Response
     {
         return $this->render('measurement/show.html.twig', [
@@ -55,7 +56,7 @@ class MeasurementController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_measurement_edit', methods: ['GET', 'POST'])]
-    #[IsGranted("ROLE_METEOROLOGIST")]
+    #[IsGranted("ROLE_MEASUREMENT_EDIT")]
     public function edit(Request $request, Measurement $measurement, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(MeasurementType::class, $measurement);
@@ -74,7 +75,7 @@ class MeasurementController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_measurement_delete', methods: ['POST'])]
-    #[IsGranted("ROLE_METEOROLOGIST")]
+    #[IsGranted("ROLE_MEASUREMENT_DELETE")]
     public function delete(Request $request, Measurement $measurement, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$measurement->getId(), $request->request->get('_token'))) {

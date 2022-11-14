@@ -35,13 +35,12 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/location, roles: ROLE_CARTOGRAPHER}
-        - { path: ^/measurement, roles: ROLE_METEOROLOGIST }
+        - { path: ^/location, roles: ROLE_LOCATION_INDEX }
+        - { path: ^/measurement, roles: ROLE_MEASUREMENT_INDEX }
 
 when@test:
     security:
         role_hierarchy:
-            ROLE_ADMIN: [ROLE_METEOROLOGIST, ROLE_CARTOGRAPHER]
         password_hashers:
             # By default, password hashers are resource intensive and take time. This is
             # important to generate secure password hashes. In tests however, secure hashes

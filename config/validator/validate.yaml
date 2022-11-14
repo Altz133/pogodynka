@@ -13,7 +13,6 @@ App\Entity\Location:
                 min: -180
                 max: 180
                 groups: ['edit', 'new']
-
 App\Entity\Measurement:
     properties:
         celsius:
@@ -22,12 +21,12 @@ App\Entity\Measurement:
                 max: 60
                 groups: ['edit', 'new']
         atmosferic_pressure:
-            -  Range: 
+            - Range: 
                 min: 900
                 max: 1200
                 groups: ['edit', 'new']
         rain_drop:
-            -  Range:
+            - Range:
                 min: 0
                 max: 100
                 groups: ['edit', 'new']

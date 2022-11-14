@@ -41,7 +41,7 @@
 
      <h2>Routing</h2>
     <ul>
-    {% if is_granted('ROLE_METEOROLOGIST') %}
+    {% if is_granted('ROLE_METEOROLOGIST') %}/
     <li> <a href= "{{ path("measurement") }}">Measurement</a></li>
     {% endif %}
     {% if is_granted('ROLE_CARTOGRAPHER') %}

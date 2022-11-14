@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Weather in {{location.city}}, {{location.country}}{% endblock%}
+{# {% block title %}Weather in {{location.city}}, {{location.country}}{% endblock%} #}
 
 {% block body %}
 <style>
@@ -9,7 +9,7 @@
 </style>
 
 <div class="example-wrapper">
-    <h1> {{location.city}}, {{location.country}}</h1>
+    {# <h1> {{location.city}}, {{location.country}}</h1> #}
     <ul>
         {% for measurement in measurements %}
 
@@ -19,13 +19,13 @@
 </div>
 
 <div class="example-wrapper">
-    <h1> {{location.city}}, {{location.country}}</h1>
+    {# <h1> {{location.city}}, {{location.country}}</h1> #}
     <h3> Pomiary gdzie ciśnienie atmosferyczne jest mniejsze niż 1000 hPa </h3>
     <ul>
-        {% for measurement in filtered %}
+        {# {% for measurement in filtered %}
 
         <li> {{measurement.date|date('d.m.Y') }}: {{measurement.celsius}} &deg;C :  {{measurement.atmosferic_pressure}} hPa, Rain Chance - {{measurement.rain_drop}}%</li>
-        {% endfor %}
+        {% endfor %} #}
     </ul>
 </div>
 {% endblock %}
