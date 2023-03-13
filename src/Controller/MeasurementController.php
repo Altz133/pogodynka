@@ -47,7 +47,7 @@ class MeasurementController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_measurement_show', methods: ['GET'])]
-    #[IsGranted("ROLE_METEOROLOGIST_SHOW")]
+    #[IsGranted("ROLE_MEASUREMENT_SHOW")]
     public function show(Measurement $measurement): Response
     {
         return $this->render('measurement/show.html.twig', [
@@ -59,7 +59,9 @@ class MeasurementController extends AbstractController
     #[IsGranted("ROLE_MEASUREMENT_EDIT")]
     public function edit(Request $request, Measurement $measurement, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(MeasurementType::class, $measurement);
+        $form = $this->createForm(MeasurementType::class, $measurement,[
+            'validation_groups' => ['edit','new'],
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

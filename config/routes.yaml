@@ -2,6 +2,10 @@ weather_in_city:
   path: /weather/{country}/{city}
   controller: App\Controller\WeatherController:cityAction
 
+app_weather_api:
+  path: /weather/api
+  controller: App\Controller\WeatherApiController:cityAction
+  
 location:
   path: /location
   prefix: "location"

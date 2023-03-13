@@ -10,7 +10,7 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\Cartographer
+                class: App\Entity\Meteorologist
                 property: email
         # used to reload user from session & other features (e.g. switch_user)
         # used to reload user from session & other features (e.g. switch_user)
@@ -35,12 +35,14 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/location, roles: ROLE_LOCATION_INDEX }
-        - { path: ^/measurement, roles: ROLE_MEASUREMENT_INDEX }
+        - { path: ^/location, roles: ROLE_CARTOGRAPTHER }
+        - { path: ^/measurement, roles: ROLE_METEOROLOGIST }
 
+    role_hierarchy:
+        ROLE_CARTOGRAPTHER: [ ROLE_LOCATION_INDEX, ROLE_LOCATION_NEW, ROLE_LOCATION_SHOW, ROLE_LOCATION_EDIT, ROLE_LOCATION_DELETE ]
+        ROLE_METEOROLOGIST: [ ROLE_MEASUREMENT_INDEX, ROLE_MEASUREMENT_NEW, ROLE_MEASUREMENT_SHOW, ROLE_MEASUREMENT_EDIT, ROLE_MEASUREMENT_DELETE ]
+        ROLE_USER: [ ROLE_MEASUREMENT_INDEX, ROLE_MEASUREMENT_SHOW]
 when@test:
-    security:
-        role_hierarchy:
         password_hashers:
             # By default, password hashers are resource intensive and take time. This is
             # important to generate secure password hashes. In tests however, secure hashes

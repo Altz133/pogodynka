@@ -1,8 +1,5 @@
 App\Entity\Location:   
     properties:
-        city:
-          - NotBlank: ~
-            groups: ['edit', 'new']
         latitude:
             - Range:
                 min: -90

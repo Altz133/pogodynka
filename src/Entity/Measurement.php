@@ -71,24 +71,24 @@ class Measurement
         return $this;
     }
 
-    public function getAtmosferic_Pressure(): ?string
+    public function getAtmosfericPressure(): ?string
     {
         return $this->atmosferic_pressure;
     }
 
-    public function setAtmosferic_Pressure(?string $atmosferic_pressure): self
+    public function setAtmosfericPressure(?string $atmosferic_pressure): self
     {
         $this->atmosferic_pressure = $atmosferic_pressure;
 
         return $this;
     }
 
-    public function getRain_Drop(): ?string
+    public function getRainDrop(): ?string
     {
         return $this->rain_drop;
     }
 
-    public function setRain_Drop(?string $rain_drop): self
+    public function setRainDrop(?string $rain_drop): self
     {
         $this->rain_drop = $rain_drop;
 

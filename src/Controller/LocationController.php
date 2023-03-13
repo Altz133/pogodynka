@@ -60,7 +60,9 @@ class LocationController extends AbstractController
     #[IsGranted("ROLE_LOCATION_EDIT")]
     public function edit(Request $request, Location $location, LocationRepository $locationRepository): Response
     {
-        $form = $this->createForm(LocationType::class, $location);
+        $form = $this->createForm(LocationType::class, $location, [
+            'validation_groups' => ['edit','new'],
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
